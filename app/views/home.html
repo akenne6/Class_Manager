@@ -1,0 +1,23 @@
+<div class="container">
+	<div class="jumbotron">
+		<h2 ng-bind-template="Welcome {{ person.fname }} {{person.lname }}"></h2>
+	</div>
+</div>
+
+<div class="container">
+	<div class="col-md-4" ng-repeat="class in person.classes">
+		<a href="#/home/{{$index}}-{{class.id}}" class="class-link">
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<div class="panel-title">{{ class.course_name }}</div>
+					{{ class.course_name_short }}
+				</div>
+				<div class="panel-body">{{ class.description }}</div>
+				<div class="panel-footer">
+					<span class="teacher">{{ class.teacher }}</span><span class="time">{{ class.time }}</span>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+		

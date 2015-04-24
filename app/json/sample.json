@@ -1,0 +1,52 @@
+{
+  "fname": "Alex",
+  "lname": "Kenney",
+  "role": "Student",
+  "classes": [
+	{
+	  "id": "intro-to-computer-science",
+	  "course_name": "Introduction to Computer Science",
+	  "course_name_short": "COMP 101",
+	  "description": "This is a computer science course meant for students from all backgrounds.",
+	  "schedule": "MWF",
+	  "time": "8:00 AM",
+	  "teacher": "Dr. Smith"
+	},
+	{
+	  "id": "intro-to-chemistry",
+	  "course_name": "Introduction to Chemistry",
+	  "course_name_short": "CHEM 101",
+	  "description": "This is a chemistry course meant for students from all backgrounds.",
+	  "schedule": "TTh",
+	  "time": "11:00 AM",
+	  "teacher": "Dr. Jones"
+	},
+	{
+	  "id": "intro-to-biology",
+	  "course_name": "Introduction to Biology",
+	  "course_name_short": "BIOL 101",
+	  "description": "This is a biology course meant for students from all backgrounds.",
+	  "schedule": "MWF",
+	  "time": "9:00 AM",
+	  "teacher": "Dr. Who"
+	},
+	{
+	  "id": "intro-to-philosophy",
+	  "course_name": "Introduction to Philosophy",
+	  "course_name_short": "PHIL 101",
+	  "description": "This is a philosophy course meant for students from all backgrounds.",
+	  "schedule": "TTh",
+	  "time": "8:15 AM",
+	  "teacher": "Dr. Doctor"
+	},
+	{
+	  "id": "intro-to-ceramics",
+	  "course_name": "Introduction to Ceramics",
+	  "course_name_short": "FINA 101",
+	  "description": "This is a ceramics course meant for students from all backgrounds.",
+	  "schedule": "W",
+	  "time": "7:00 PM",
+	  "teacher": "Dr. No"
+	}
+  ]
+}
