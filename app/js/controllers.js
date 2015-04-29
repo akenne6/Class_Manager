@@ -10,6 +10,16 @@ classManagerControllers.controller('MainController', ['$scope', 'person', functi
   });
 }]);
 
+classManagerControllers.controller('LoginController', ['$scope', '$location', 'authenticateUser', function($scope, $location, authenticateUser) {
+	$scope.loginUser = function () {
+		authenticateUser.login($scope.username, $scope.password, function(data) {
+			if (data.success) {
+				$location.path('/home');
+			}			
+		});
+	};
+}]);
+
 classManagerControllers.controller('ClassController', ['$scope', 'person', '$routeParams',
   function($scope, person, $routeParams) {
 	//Will use php and service to select appropriate class using classId in the future
