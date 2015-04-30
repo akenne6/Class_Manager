@@ -4,19 +4,25 @@
 
 var classManagerControllers = angular.module('classManagerControllers', []);
 
-classManagerControllers.controller('MainController', ['$scope', 'person', function($scope, person) {
+classManagerControllers.controller('MainController', ['$scope', '$cookieStore', 'person', function($scope, $cookieStore, person) {
+  /* Test to make sure the cookie that was set during log in could be retrieved
+  $scope.name = $cookieStore.get('globals').currentUser.username;
+  */
   person.success(function(data) {
   	$scope.person = data;
   });
+  
 }]);
 
-classManagerControllers.controller('LoginController', ['$scope', '$location', 'authenticateUser', function($scope, $location, authenticateUser) {
+classManagerControllers.controller('LoginController', ['$scope', '$location', '$cookies', 'authenticateUser', function($scope, $location, $cookies, authenticateUser) {
 	$scope.loginUser = function () {
-		authenticateUser.login($scope.username, $scope.password, function(data) {
-			if (data.success) {
-				$location.path('/home');
-			}			
-		});
+		authenticateUser.login($scope.username, $scope.password, function (response) {
+                if (response.success) {
+                    authenticateUser.setCookieInfo($scope.username);
+                    $location.path('/home');
+                } else {
+                }
+            });
 	};
 }]);
 

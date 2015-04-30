@@ -25,7 +25,7 @@ classManagerApp.config(['$routeProvider',
 		});
   }]);
 
-classManagerApp.run(['$rootScope', '$location', '$cookies', function($rootScope, $location, $cookies) {
+classManagerApp.run(['$rootScope', '$location', '$cookieStore', function($rootScope, $location, $cookieStore) {
 	$rootScope.loggedIn = false;
 	
 	if ($rootScope.loggedIn) {

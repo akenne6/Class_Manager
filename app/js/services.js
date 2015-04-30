@@ -13,31 +13,38 @@ classManagerServices.factory('person', ['$http', function($http) {
 		return err; 
 	}); 
 }]);
-/*
-classManagerServices.factory('authenticateUser', ['$http', '$timeout', 
-	function($http, $timeout) { 
+
+classManagerServices.factory('authenticateUser', ['$http', '$timeout', '$rootScope', '$cookieStore', function($http, $timeout, $rootScope, $cookieStore) { 
 	var service = {};
 	
-	service.login = function(username, password, callback) {
+	service.login = function (username, password, callback) {
+
+		/* Dummy authentication for testing, uses $timeout to simulate api call
+		 ----------------------------------------------*/
 		$timeout(function () {
-                var response = { success: username === 'test' && password === 'test' };
-                if (!response.success) {
-                    response.message = 'Username or password is incorrect';
-                }
-                callback(response);
-            }, 1000);
-	};
-}]);
-*/
-classManagerServices.factory('authenticateUser', ['$http', '$timeout', function($http, $timeout) { 
-	var service = {};
-	
-	service.login = function(username, password, callback) {
-		$timeout(function() {
-			var response = { success: username === "test" && password === "test" };
+			var response = { success: username === 'test' && password === 'test' };
+			if (!response.success) {
+				response.message = 'Username or password is incorrect';
+			}
 			callback(response);
 		}, 1000);
 	};
-	
+
+	service.setCookieInfo = function (username) {
+
+		$rootScope.globals = {
+			currentUser: {
+				username: username,
+				loggedIn: true
+			}
+		};
+		$cookieStore.put('globals', $rootScope.globals);
+	};
+
+	service.ClearCredentials = function () {
+		$rootScope.globals = {};
+		$cookieStore.remove('globals');
+	};
+
 	return service;
 }]);
